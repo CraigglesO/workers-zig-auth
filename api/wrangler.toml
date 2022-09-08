@@ -1,8 +1,16 @@
-name = "auth"
+name = "api"
 main = "dist/worker.mjs"
 compatibility_date = "2022-07-29"
-usage_model = "bundled"
+usage_model = "unbound"
 account_id = ""
+
+[env]
+kv_namespaces = [
+  { binding = "USER", id = "", preview_id = "usremlid" }
+]
+services = [
+  { binding = "AUTH", service = "auth", environment = "production" }
+]
 
 [build]
 command = "npm run build:zig && npm run build:esm"

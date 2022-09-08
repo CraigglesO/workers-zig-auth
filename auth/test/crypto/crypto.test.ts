@@ -22,7 +22,7 @@ beforeEach<LocalTestContext>(async (ctx) => {
 
 it<LocalTestContext>("basic example", async ({ mf }) => {
   // Dispatch a fetch event to our worker
-  const hashRes = await mf.dispatchFetch("http://localhost:8787/argon-hash", {
+  const hashRes = await mf.dispatchFetch("http://localhost:8787/auth/argon-hash", {
     method: 'POST',
     body: JSON.stringify(['testPassword'])
   })
@@ -32,7 +32,7 @@ it<LocalTestContext>("basic example", async ({ mf }) => {
   assert.equal(typeof hash, 'string')
   assert.equal(hash.length, 87)
 
-  const verifyRes = await mf.dispatchFetch("http://localhost:8787/argon-verify", {
+  const verifyRes = await mf.dispatchFetch("http://localhost:8787/auth/argon-verify", {
     method: 'POST',
     body: JSON.stringify(['testPassword', hash])
   })
