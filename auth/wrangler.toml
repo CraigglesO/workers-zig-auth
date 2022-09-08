@@ -1,11 +1,11 @@
 name = "auth"
 main = "dist/worker.mjs"
 compatibility_date = "2022-07-29"
-usage_model = "bundled"
+usage_model = "unbound"
 account_id = ""
 
 [build]
-command = "npm run build:zig && npm run build:esm"
+command = "npm run build"
 watch_dir = [
   "src",
   "lib"
