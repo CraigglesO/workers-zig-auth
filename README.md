@@ -2,9 +2,14 @@
 
 A [**WASI**](https://wasi.dev/) + [**Zig**](https://ziglang.org/) + [**Argon2**](https://en.wikipedia.org/wiki/Argon2) solution to password security.
 
-[Argon2](https://www.argon2.com/) is a key derivation function that was selected as the winner of the 2015 Password Hashing Competition
+[Argon2](https://www.argon2.com/) is a key derivation function that was selected as the winner of the 2015 Password Hashing Competition. I recommend it as the method of storing peoples private data.
 
-Due to the liberties given to us via `unbound`, I recommend setting the [t parameter to 1000+ for maximum safety](https://github.com/CraigglesO/workers-zig-auth/blob/master/auth/lib/handlers/argon.zig#L18). I found results are still close to instantaneous
+Due to the liberties given to us via `unbound`, I recommend setting the [t parameter to 1000+ for maximum safety](https://github.com/CraigglesO/workers-zig-auth/blob/master/auth/lib/handlers/argon.zig#L18). I found results are still close to instantaneous even at 1000. Also be sure to [update the salt](https://github.com/CraigglesO/workers-zig-auth/blob/master/auth/lib/handlers/argon.zig#L7).
+
+On linux you can generate a string of randomness like so:
+```bash
+head -3 /dev/urandom | tr -cd '[:alnum:]' | cut -c -64
+```
 
 **The long term goal**: When Cloudflare supports dynamic imports, this template will be replaced as a library to quickly hash and verify password. Until then, this template uses zig inside a service worker to not bloat the main api.
 
