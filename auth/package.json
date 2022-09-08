@@ -38,14 +38,6 @@
     "wrangler:publish": "wrangler publish",
     "test": "npm run build && NODE_OPTIONS=\"--experimental-vm-modules --no-warnings\" vitest run --dir test"
   },
-  "ava": {
-    "extensions": {
-      "ts": "module"
-    },
-    "nodeArguments": [
-      "--loader=ts-node/esm"
-    ]
-  },
   "devDependencies": {
     "@cloudflare/workers-types": "^3.14.1",
     "esbuild": "^0.14.53",

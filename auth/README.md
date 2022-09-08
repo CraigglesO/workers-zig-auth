@@ -1,17 +1,14 @@
 # Worker Zig Template
 
-## Install
+## Build
 
-```bash
-# in one go
-git clone --recurse-submodules -j8 git@github.com:CraigglesO/worker-zig-template.git
+Be sure to install packages and build before using API:
 
-# OR
-
-# clone
-git clone git@github.com:CraigglesO/worker-zig-template.git
-# enter
-cd worker-zig-template
-# Pull in the submodule
-git submodule update --init --recursive
+```shell
+# NPM
+npm i && npm run build
+# PNPM
+pnpm i && pnpm build
+# yarn
+yarn i && yarn build
 ```

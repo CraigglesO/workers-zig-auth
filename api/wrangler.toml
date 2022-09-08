@@ -13,7 +13,7 @@ services = [
 ]
 
 [build]
-command = "npm run build:zig && npm run build:esm"
+command = "npm run build"
 watch_dir = [
   "src",
   "lib"
