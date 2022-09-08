@@ -1,0 +1,3 @@
+[submodule "workers-zig"]
+	path = workers-zig
+	url = https://github.com/CraigglesO/workers-zig

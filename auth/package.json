@@ -1,0 +1,62 @@
+{
+  "name": "workers-zig-auth",
+  "type": "module",
+  "main": "dist/worker.mjs",
+  "module": "dist/worker.mjs",
+  "description": "Write Cloudflare Workers in Zig via WebAssembly",
+  "private": false,
+  "version": "0.1.0",
+  "keywords": [
+    "cloudflare",
+    "worker",
+    "workers",
+    "serverless",
+    "zig",
+    "workers zig",
+    "cf",
+    "parameters",
+    "typescript",
+    "esm",
+    "typed"
+  ],
+  "author": "Craig O'Connor <craiggles@s2maps.io>",
+  "license": "MIT",
+  "homepage": "https://github.com/CraigglesO/worker-zig-auth",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:CraigglesO/worker-zig-auth.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CraigglesO/worker-zig-auth/issues"
+  },
+  "scripts": {
+    "dev": "wrangler dev",
+    "local": "wrangler dev --local --experimental-enable-local-persistence --ip 127.0.0.1 --port 8789",
+    "build:esbuild": "rm -rf dist && mkdir dist && node esbuild.mjs",
+    "build:zig": "zig build",
+    "wrangler:publish": "wrangler publish",
+    "test": "npm run build:zig && npm run build:esbuild && NODE_OPTIONS=\"--experimental-vm-modules --no-warnings\" vitest run --dir test"
+  },
+  "ava": {
+    "extensions": {
+      "ts": "module"
+    },
+    "nodeArguments": [
+      "--loader=ts-node/esm"
+    ]
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^3.14.1",
+    "esbuild": "^0.14.53",
+    "esbuild-plugin-wat": "^0.2.7",
+    "miniflare": "^2.7.1",
+    "typescript": "^4.7.4",
+    "uglify-js": "^3.17.0",
+    "vitest": "^0.23.1",
+    "wrangler": "2.0.26"
+  },
+  "dependencies": {
+    "itty-router": "^2.6.1",
+    "workers-zig": "^0.2.0"
+  }
+}

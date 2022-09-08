@@ -1,0 +1,16 @@
+/cache
+/dist/
+/docs/
+/lib
+/node_modules
+/src
+/test
+/zig-cache
+/zig-out
+/.github
+bindings.d.ts
+tsconfig.json
+build.zig
+esbuild.mjs
+*.http
+wrangler.toml
